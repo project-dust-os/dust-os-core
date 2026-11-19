@@ -1,0 +1,248 @@
+DUST OS SOURCE-AVAILABLE LICENSE
+Version 1.0 — 19 November 2026
+
+Copyright (c) 2026 devennw <dvennote65@gmail.com>. All rights reserved.
+
+================================================================================
+PLEASE READ THIS CAREFULLY.
+
+THIS IS NOT AN OPEN SOURCE LICENSE. This is a proprietary, source-available
+license. The Software is made visible for study and evaluation only. It may not
+be copied into other projects, modified, or distributed. If you do not accept
+every term of this License, you have no permission to use the Software and must
+delete all copies in your possession.
+================================================================================
+
+1. DEFINITIONS
+
+1.1 "Software" means the source code, header files, assembly files, linker
+    scripts, build files, documentation, and other materials contained in this
+    repository, excluding Third-Party Components.
+
+1.2 "Owner" means devennw, the copyright holder of the Software, together with
+    any successor or assign.
+
+1.3 "You" means any individual or legal entity that accesses, copies, builds,
+    runs, or otherwise uses the Software.
+
+1.4 "Contribution" means any code, documentation, or other material that You
+    submit to the Owner or to this repository, in any form and by any channel.
+
+1.5 "Distribute" means to publish, post, upload, transmit, mirror, sublicense,
+    sell, rent, lease, lend, or otherwise make the Software available to any
+    person or entity, in source or object form, including through a public
+    repository, package registry, website, archive, file-sharing service, or
+    machine-learning training corpus.
+
+1.6 "Derivative Work" means any work that is based on, incorporates, adapts,
+    translates, or is substantially similar to the Software or any part of it.
+
+1.7 "Third-Party Components" means components listed in the NOTICE file,
+    including their respective copyright holders and licenses.
+
+1.8 "Commercial Use" means any use intended for or directed toward commercial
+    advantage or monetary compensation, including use in a product, service,
+    consulting engagement, or paid distribution.
+
+2. OWNERSHIP
+
+2.1 The Software is licensed, not sold. The Owner retains all right, title, and
+    interest in and to the Software, including all copyright and other
+    intellectual property rights.
+
+2.2 No rights are granted by implication, estoppel, or otherwise. Any right not
+    expressly granted in Section 3 is reserved to the Owner.
+
+2.3 The moral rights (hak moral) of the authors of the Software are retained and
+    are not waived. Nothing in this License purports to waive rights that cannot
+    be waived under applicable law.
+
+3. LIMITED PERMISSION
+
+Subject to Your full compliance with this License, the Owner grants You a
+limited, revocable, non-exclusive, non-transferable, royalty-free permission to:
+
+    (a) read and study the Software;
+
+    (b) download and keep a private local copy solely in order to build and run
+        the Software for personal, non-commercial study and evaluation;
+
+    (c) quote brief excerpts of the Software, with clear attribution to the
+        Owner and to this repository, for commentary, criticism, teaching, or
+        review.
+
+This Section 3 is the entire permission granted to You. No other use, in any
+form, is permitted.
+
+4. PROHIBITED CONDUCT
+
+You must not:
+
+    (a) copy, paste, transcribe, or otherwise incorporate any part of the
+        Software into any other project, product, or work, whether public or
+        private;
+
+    (b) Distribute the Software, in whole or in part, in source or object form;
+
+    (c) create, publish, or Distribute any Derivative Work;
+
+    (d) use the Software or any part of it for Commercial Use;
+
+    (e) sublicense, sell, rent, lease, lend, assign, or otherwise transfer the
+        Software or any rights in it;
+
+    (f) remove, obscure, or alter any copyright, license, or attribution notice;
+
+    (g) misrepresent the origin or authorship of the Software;
+
+    (h) include the Software or any part of it in any machine-learning training
+        dataset, model, or code-generation corpus, or use it to train, fine-tune,
+        or evaluate such systems;
+
+    (i) use the Software to develop or provide a competing operating system,
+        product, or service.
+
+Transient copies that are technically necessary to carry out an act permitted
+under Section 3 do not breach this Section.
+
+5. CONTRIBUTIONS
+
+5.1 Submitting a Contribution constitutes Your acceptance of this Section 5 and
+    of this License in full.
+
+5.2 Assignment. You assign to the Owner all right, title, and interest
+    worldwide in and to the Contribution, including all copyright. Where
+    assignment is not permitted by applicable law, You instead grant the Owner
+    an exclusive, perpetual, irrevocable, worldwide, royalty-free, transferable,
+    and sublicensable license to use, reproduce, modify, Distribute, and
+    relicense the Contribution.
+
+5.3 Contributor representations. You represent and warrant that:
+
+    (a) the Contribution is Your original work, or You otherwise hold all rights
+        necessary to submit it;
+
+    (b) the Contribution does not infringe any third-party right and does not
+        incorporate code under a license that is incompatible with this License,
+        including GPL, LGPL, or AGPL code;
+
+    (c) You have disclosed in writing any known defect, limitation, or security
+        issue in the Contribution at the time of submission.
+
+5.4 Contributor responsibility for defects. A contributor is responsible for the
+    correctness of the Contribution they submit. If a defect in a Contribution
+    causes a bug, error, data loss, or security issue, the contributor must, at
+    the Owner's request:
+
+    (a) cooperate in diagnosing the defect; and
+
+    (b) use reasonable efforts to provide a correction within a reasonable time.
+
+    A contributor must not knowingly submit code containing an undisclosed
+    defect. Responsibility under this Section is limited to the Contribution
+    authored by that contributor and does not extend to code authored by others.
+
+5.5 Indemnity. Each contributor indemnifies and holds the Owner harmless from any
+    third-party claim, loss, damage, or cost arising from (a) a breach of Section
+    5.3, or (b) a defect in that contributor's Contribution, to the maximum
+    extent permitted by applicable law.
+
+5.6 The Owner may reject, modify, or revert any Contribution at any time and for
+    any reason, without liability.
+
+5.7 Nothing in this Section 5 limits the disclaimers and limitations in Sections
+    9 and 10, which apply to the Software as a whole.
+
+6. THIRD-PARTY COMPONENTS
+
+6.1 Third-Party Components are not covered by this License. They are governed
+    exclusively by their own licenses and are identified, together with their
+    provenance status, in the NOTICE file.
+
+6.2 Nothing in this License restricts any right You have under a Third-Party
+    Component's license, and nothing in this License grants any right You do not
+    have under those licenses.
+
+6.3 If You build or distribute a binary that includes Third-Party Components, You
+    are solely responsible for complying with those components' notice and
+    redistribution requirements.
+
+7. TERM AND TERMINATION
+
+7.1 This License is effective until terminated.
+
+7.2 This License terminates automatically, without notice, if You breach any
+    term.
+
+7.3 On termination, You must immediately stop all use of the Software, delete
+    and destroy all copies in Your possession or control, and, on request,
+    certify that deletion in writing.
+
+7.4 Sections 2, 4, 5, 6.3, 8, 9, 10, 11, and 12 survive termination.
+
+8. ENFORCEMENT AND LEGAL ACTION
+
+8.1 Unauthorized copying, reproduction, modification, or Distribution of the
+    Software is an infringement of copyright and, where applicable, of other
+    rights under the laws of the Republic of Indonesia, including Law No. 28 of
+    2014 on Copyright, and under applicable international treaties.
+
+8.2 The Owner may pursue any and all available remedies, including injunctive
+    relief, seizure or destruction of infringing copies, actual damages,
+    statutory damages where available, an account of profits, and reimbursement
+    of reasonable legal costs and expenses.
+
+8.3 The Owner may report criminal copyright infringement to the competent
+    authorities.
+
+8.4 Failure or delay in enforcing any term is not a waiver of that term or of
+    any other term.
+
+9. DISCLAIMER OF WARRANTY
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. THE OWNER DOES NOT WARRANT
+THAT THE SOFTWARE WILL BE ERROR-FREE, SECURE, OR FIT FOR ANY PARTICULAR USE. YOU
+USE THE SOFTWARE ENTIRELY AT YOUR OWN RISK.
+
+10. LIMITATION OF LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE OWNER SHALL NOT BE LIABLE
+FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES, OR
+FOR ANY LOSS OF DATA, PROFITS, OR GOODWILL, ARISING OUT OF OR RELATING TO THE
+SOFTWARE OR THIS LICENSE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+NOTHING IN THIS LICENSE EXCLUDES LIABILITY THAT CANNOT BE EXCLUDED UNDER
+APPLICABLE LAW.
+
+11. GOVERNING LAW AND JURISDICTION
+
+11.1 This License is governed by the laws of the Republic of Indonesia, without
+     regard to conflict-of-law rules.
+
+11.2 The parties shall first attempt to resolve any dispute amicably within
+     thirty (30) days. Failing that, the dispute shall be submitted to the
+     exclusive jurisdiction of the competent courts of the Republic of Indonesia.
+
+12. MISCELLANEOUS
+
+12.1 If any provision is held unenforceable, it shall be modified to the minimum
+     extent necessary to make it enforceable, and the remaining provisions shall
+     remain in full effect.
+
+12.2 This License is the entire agreement between You and the Owner concerning
+     the Software and supersedes any prior understanding on that subject.
+
+12.3 There are no third-party beneficiaries of this License.
+
+12.4 This License is drafted in English. If translated, the English text
+     controls.
+
+12.5 The Owner may publish new versions of this License. The version in effect
+     for a given copy of the Software is the version distributed with that copy.
+
+13. CONTACT
+
+    Owner:   devennw
+    Email:   dvennote65@gmail.com
+    Project: DUST-OS

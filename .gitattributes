@@ -1,0 +1,30 @@
+# Normalise line endings to LF in the repository, on every platform.
+* text=auto eol=lf
+
+# Source
+*.c      text diff=c
+*.h      text diff=c
+*.S      text diff=asm
+*.s      text diff=asm
+*.ld     text
+*.cmake  text
+CMakeLists.txt text
+
+# Documentation
+*.md     text
+*.txt    text
+
+# Binary assets
+*.efi    binary
+*.EFI    binary
+*.bin    binary
+*.img    binary
+*.iso    binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+
+# Keep vendor license files untouched
+NOTICE   text
+LICENSE  text

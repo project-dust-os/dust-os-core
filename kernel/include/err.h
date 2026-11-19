@@ -5,5 +5,4 @@
 
 #define MAX_ERRNO 4096
 
-
 #endif // _ERR_H

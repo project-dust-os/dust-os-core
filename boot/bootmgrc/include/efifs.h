@@ -1,7 +1,6 @@
 #ifndef _EFI_FS_H
 #define _EFI_FS_H
 
-
 #define EFI_PARTITION_SIGNATURE 0x5053595320494249
 #define EFI_PARTITION_REVISION 0x00010001
 #define MIN_EFI_PARTITION_BLOCK_SIZE 512
@@ -126,8 +125,8 @@ typedef struct {
 
 EFI_STATUS(EFIAPI *reset)(boolean ExtendedVerification);
 
-EFI_STATUS(EFIAPI *read_blocks)(uint32 MediaId, EFI_LBA Lba,
-				uintn_t BufferSize, void *Buffer);
+EFI_STATUS(EFIAPI *read_blocks)(uint32 MediaId, EFI_LBA Lba, uintn_t BufferSize,
+				void *Buffer);
 
 EFI_STATUS(EFIAPI *write_blocks)(uint32_t MediaId, EFI_LBA Lba,
 				 uintn_t BufferSize, void *Buffer);

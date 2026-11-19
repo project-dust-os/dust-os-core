@@ -1,0 +1,57 @@
+# Third-Party Notices
+
+DUST-OS contains code whose origin is not yet established, and is developed
+against public specifications. This file records both. It is referenced by
+Section 6 of [LICENSE](LICENSE).
+
+If a third-party component is added to this repository in the future, it must be
+recorded here with its upstream URL, its license, and the full license text,
+before it is committed.
+
+---
+
+## 1. Code of unresolved provenance — ACTION REQUIRED
+
+The following files under `boot/bootmgrc/` appear to be adapted from an external
+project. They carry no copyright header, no SPDX identifier, and no license
+text. Their origin has not yet been established.
+
+| Path | Status |
+| --- | --- |
+| `boot/bootmgrc/include/efi.h` | Provenance unknown |
+| `boot/bootmgrc/include/efidef.h` | Provenance unknown |
+| `boot/bootmgrc/include/efifs.h` | Provenance unknown |
+| `boot/bootmgrc/include/efigpt.h` | Provenance unknown |
+| `boot/bootmgrc/include/efiui.h` | Provenance unknown |
+| `boot/bootmgrc/include/eficompiler.h` | Provenance unknown |
+| `boot/bootmgrc/include/exec/elf.h` | Provenance unknown |
+| `boot/bootmgrc/include/exec/setjmp_x86-64.h` | Provenance unknown |
+| `boot/bootmgrc/arch/reloc-x86_64.c` | Provenance unknown (empty) |
+| `boot/bootmgrc/src/sys/handoff.*` | Provenance unknown |
+
+**Until each file's origin is identified, that file must be treated as
+third-party code.** It must not be relicensed under LICENSE, and the repository
+must not be published as if the copyright holder owned it.
+
+To resolve this, for each file either:
+
+1. locate the upstream project, record its URL, license, and copyright line in
+   this table, and preserve the original notice; or
+2. replace the file with an original implementation written for DUST-OS; or
+3. remove the file entirely.
+
+Do not guess the license. An unattributed copyleft file would make the whole
+repository undistributable under its current terms.
+
+---
+
+## 2. Specifications
+
+The implementation refers to the following specifications. Specifications are not
+source code and impose no license obligation on this repository, but they are the
+authoritative reference for the interfaces implemented here.
+
+- **UEFI Specification** — https://uefi.org/specifications
+- **ACPI Specification** — https://uefi.org/specifications
+- **Intel 64 and IA-32 Architectures Software Developer's Manual** — https://www.intel.com/sdm
+- **OSDev Wiki** — https://wiki.osdev.org (educational reference only)

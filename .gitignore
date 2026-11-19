@@ -1,0 +1,58 @@
+# ---------------------------------------------------------------------------
+# Build output
+# ---------------------------------------------------------------------------
+/build/
+/out/
+/obj/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CMakeUserPresets.json
+compile_commands.json
+*.ninja
+*.o
+*.obj
+*.a
+*.lib
+*.d
+*.elf
+*.bin
+*.iso
+*.img
+*.map
+*.sym
+*.lst
+
+# ---------------------------------------------------------------------------
+# Bootloader images and firmware blobs
+#
+# Limine is third-party software. Its binaries are fetched at build time and
+# are not tracked in this repository. See NOTICE for license terms.
+# ---------------------------------------------------------------------------
+*.efi
+*.EFI
+*.img.gz
+
+# ---------------------------------------------------------------------------
+# Editors and IDEs
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.clangd/
+.cache/
+
+# ---------------------------------------------------------------------------
+# Operating system metadata
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+
+# ---------------------------------------------------------------------------
+# Logs and local scratch files
+# ---------------------------------------------------------------------------
+*.log
+*.tmp
+*.bak
