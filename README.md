@@ -33,6 +33,15 @@ boot path built in this repository.
 | IPC | Header-level design only |
 | Filesystems, drivers, user space | Placeholders |
 
+## Public release
+
+This repository is the private development tree. A curated subset — the kernel,
+HAL, GUI, boot path, filesystems, security, and selected drivers — is published
+separately as a source-available release. Code outside that subset is not
+published. The scope is recorded in
+[DOCUMENTS/LICENSING.md](DOCUMENTS/LICENSING.md); the release procedure is in
+[DOCUMENTS/PUBLISHING.md](DOCUMENTS/PUBLISHING.md).
+
 ## Goals
 
 The project advances in this order. Nothing later starts before the step before
@@ -128,8 +137,8 @@ disabled. See `CMakeLists.txt` for the exact flag set.
 
 Contributions are welcome, but this is a proprietary project: submitting a
 contribution assigns copyright in it to the maintainer and carries a correctness
-warranty. Read [CONTRIBUTING.md](CONTRIBUTING.md) and Section 5 of
-[LICENSE](LICENSE) before opening a pull request.
+warranty. Read [CONTRIBUTING.md](CONTRIBUTING.md), [CLA.md](CLA.md), and Section 5
+of [LICENSE](LICENSE) before opening a pull request.
 
 ## Security
 
@@ -153,6 +162,11 @@ DUST-OS is **source-available and proprietary**. It is **not** open source.
 See [LICENSE](LICENSE) for the binding terms, [COPYRIGHT.md](COPYRIGHT.md) for
 ownership, and [NOTICE](NOTICE) for third-party components and code of unresolved
 provenance.
+
+Contributions to the public release require the Contributor License Agreement in
+[CLA.md](CLA.md). The published subset uses the same license as the private tree.
+See [DOCUMENTS/LICENSING.md](DOCUMENTS/LICENSING.md) for the publication scope and
+[DOCUMENTS/PUBLISHING.md](DOCUMENTS/PUBLISHING.md) for how a release is produced.
 
 ## Acknowledgements
 

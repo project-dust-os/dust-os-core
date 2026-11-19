@@ -28,3 +28,20 @@ CMakeLists.txt text
 # Keep vendor license files untouched
 NOTICE   text
 LICENSE  text
+
+# ---------------------------------------------------------------------------
+# Paths excluded from `git archive` snapshots.
+#
+# This is a release-export safety net, not a security boundary. The authoritative
+# publication scope is DOCUMENTS/LICENSING.md; the procedure is
+# DOCUMENTS/PUBLISHING.md. Keep this list in sync with the "Not published"
+# section of that policy.
+# ---------------------------------------------------------------------------
+compat/                   export-ignore
+crypto/                   export-ignore
+firmware/                 export-ignore
+test/                     export-ignore
+bin/                      export-ignore
+
+# DOCUMENTS/ is published by default (ARCHITECTURE.md, LICENSING.md,
+# PUBLISHING.md). Add a line here for any future document that must stay private.

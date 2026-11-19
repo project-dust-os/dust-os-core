@@ -4,6 +4,11 @@ DUST-OS contains code whose origin is not yet established, and is developed
 against public specifications. This file records both. It is referenced by
 Section 6 of [LICENSE](LICENSE).
 
+**Publication status:** the files in Section 1 block publication of the directories
+that contain them. They must be resolved before the public source release ships;
+see [DOCUMENTS/LICENSING.md](DOCUMENTS/LICENSING.md) and
+[DOCUMENTS/PUBLISHING.md](DOCUMENTS/PUBLISHING.md).
+
 If a third-party component is added to this repository in the future, it must be
 recorded here with its upstream URL, its license, and the full license text,
 before it is committed.

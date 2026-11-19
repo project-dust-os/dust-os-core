@@ -3,20 +3,27 @@
 Thanks for your interest. DUST-OS is a proprietary, source-available project
 maintained by one person. Contributions are accepted selectively.
 
-Please read this document and Section 5 of [LICENSE](LICENSE) before you start.
-Submitting a pull request means you accept both.
+Please read this document, [CLA.md](CLA.md), and Section 5 of [LICENSE](LICENSE)
+before you start. Submitting a pull request means you accept all three.
+
+All contributions are made under [CLA.md](CLA.md), which assigns economic
+copyright in the contribution to the maintainer. Contributors keep their moral
+rights. If you are a minor, a parent or guardian must consent (CLA 3.5).
 
 ---
 
 ## 1. Before you write code
 
-1. **Open an issue first** for anything larger than a typo. Describe the problem
+1. **Check the publication scope.** Only the subset listed in
+   [DOCUMENTS/LICENSING.md](DOCUMENTS/LICENSING.md) is public. A change outside
+   that scope will be redirected or declined, even if it is good work.
+2. **Open an issue first** for anything larger than a typo. Describe the problem
    and your proposed approach. This avoids wasted work on a design the maintainer
    will not accept.
-2. **Read [DOCUMENTS/ARCHITECTURE.md](DOCUMENTS/ARCHITECTURE.md).** It records the current
+3. **Read [DOCUMENTS/ARCHITECTURE.md](DOCUMENTS/ARCHITECTURE.md).** It records the current
    state, the design decisions, and the open questions. A change that contradicts
    a recorded decision needs that decision reopened first.
-3. **One logical change per pull request.** File moves, formatting, and behaviour
+4. **One logical change per pull request.** File moves, formatting, and behaviour
    changes go in separate commits.
 
 ## 2. What is accepted
