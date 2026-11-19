@@ -1,0 +1,95 @@
+# DUST-OS — public release manifest
+#
+# Machine-readable allow-list for the public source release.
+# Rationale and policy: DOCUMENTS/LICENSING.md
+# Export procedure:      DOCUMENTS/PUBLISHING.md
+#
+# Format
+#   include <path>   copy this file, or this directory and everything below it
+#   exclude <path>   never copy this path, even if a parent is included
+#   blocked <path>   do not export the containing directory until this is resolved
+#
+# Rules
+#   - A trailing slash means "this directory and its whole subtree".
+#   - Exclusions win over inclusions.
+#   - Copy only files tracked by git; never copy build output or untracked files.
+#   - A blocked path makes its top-level directory unexportable.
+#   - Keep this file and the export-ignore list in .gitattributes in sync.
+
+# ---------------------------------------------------------------------------
+# Repository root files
+# ---------------------------------------------------------------------------
+include README.md
+include LICENSE
+include COPYRIGHT.md
+include NOTICE
+include CLA.md
+include CONTRIBUTING.md
+include CODE_OF_CONDUCT.md
+include SECURITY.md
+include AUTHORS.md
+include CMakeLists.txt
+include .clang-format
+include .editorconfig
+include .gitattributes
+include .gitignore
+
+# ---------------------------------------------------------------------------
+# Repository-level directories
+# ---------------------------------------------------------------------------
+include .github/
+include DOCUMENTS/
+
+# ---------------------------------------------------------------------------
+# Published subsystems (plan of record)
+# ---------------------------------------------------------------------------
+include kernel/
+include hal/
+include gui/
+include boot/
+include fs/
+include security/
+include drivers/
+
+# ---------------------------------------------------------------------------
+# Excluded: private by policy
+# ---------------------------------------------------------------------------
+exclude compat/
+exclude crypto/
+exclude firmware/
+exclude test/
+exclude bin/
+exclude drivers/vendor/
+
+# ---------------------------------------------------------------------------
+# Excluded: build output and workspace leftovers (must never exist in a snapshot)
+# ---------------------------------------------------------------------------
+exclude build/
+exclude out/
+exclude obj/
+exclude kernel/obj/
+exclude .cache/
+exclude .vscode/
+exclude .idea/
+exclude temp/
+exclude usr/
+exclude app/
+
+# ---------------------------------------------------------------------------
+# Blocked: unresolved provenance (see NOTICE)
+#
+# boot/ is approved for publication, but these files have no copyright notice,
+# SPDX identifier, or license. Nothing under boot/ may be exported until each is
+# attributed, rewritten, or deleted.
+# ---------------------------------------------------------------------------
+blocked boot/bootmgrc/include/efi.h
+blocked boot/bootmgrc/include/efidef.h
+blocked boot/bootmgrc/include/efifs.h
+blocked boot/bootmgrc/include/efigpt.h
+blocked boot/bootmgrc/include/efiui.h
+blocked boot/bootmgrc/include/eficompiler.h
+blocked boot/bootmgrc/include/exec/elf.h
+blocked boot/bootmgrc/include/exec/setjmp_x86-64.h
+blocked boot/bootmgrc/arch/reloc-x86_64.c
+blocked boot/bootmgrc/src/sys/handoff.c
+blocked boot/bootmgrc/src/sys/handoff.h

@@ -1,72 +1,83 @@
 # Licensing and Publication Policy
 
-Status: **draft**, owner-approved, with open decisions recorded in Section 12.
-This document is published so that the publication scope is verifiable. It is not
-a license; the binding terms are in [LICENSE](../LICENSE) and [CLA.md](../CLA.md).
+Status: **draft 2**, with the plan of record below and open decisions recorded in
+Section 12. This document is published so that the publication scope is
+verifiable. It is not a license; the binding terms are in [LICENSE](../LICENSE)
+and [CLA.md](../CLA.md).
 
 ---
 
-## 1. Two trees
+## 0. Plan of record
 
-DUST-OS is developed in two places:
+This is the Owner's stated plan, and it is not changed without an explicit
+decision in Section 12.
+
+**Published (source-available):**
+
+- the kernel (`kernel/`)
+- the GUI (`gui/`)
+- the hardware abstraction layer (`hal/`)
+- the boot path (`boot/`)
+- filesystems (`fs/`)
+- the security model (`security/`)
+- non-vendor drivers (`drivers/`, excluding `drivers/vendor/`)
+- the community and policy documents needed to review and contribute to the above
+
+**Not published (private):**
+
+- the compatibility layer (`compat/`)
+- cryptographic implementations (`crypto/`)
+- firmware and blobs (`firmware/`)
+- vendor-specific drivers (`drivers/vendor/`)
+- the test harness and hardware lab notes (`test/`)
+- binaries (`bin/`)
+- future commercial services, tooling, and products
+
+The public release is a snapshot of the allow-listed paths. The authoritative,
+machine-readable list is [PUBLIC_PATHS.txt](../PUBLIC_PATHS.txt); this document is
+the human-readable rationale.
+
+## 1. Two trees
 
 | Tree | Content | Visibility |
 | --- | --- | --- |
 | **Private development tree** | Everything, including commercial components | Private repository |
-| **Public source release** | A curated subset, published as a snapshot | Public repository, source-available |
+| **Public source release** | The allow-listed subset, published as a snapshot | Public repository, source-available |
 
-The private tree is canonical. Nothing is published by pushing this repository
-publicly; publication is a deliberate export of an allow-listed subset, described
-in [PUBLISHING.md](PUBLISHING.md).
-
-This split exists so that the public release can be studied and contributed to
-without exposing components that are intended to remain private.
+The private tree is canonical. Publication is a deliberate export, described in
+[PUBLISHING.md](PUBLISHING.md). Never publish by changing the visibility of the
+private repository.
 
 ## 2. Publication scope
 
-Proposed scope. Items marked **pending** are not decided and must not be treated
-as settled.
+Decided scope, with conditions where they apply.
 
-### Published
-
-| Path | Rationale |
-| --- | --- |
-| `kernel/` | Core of the project; highest learning and review value |
-| `hal/` | Needed to understand and port the kernel |
-| `gui/` | Visible, self-contained, good for contributors |
-| `boot/` | Boot chain; must be public for the contract to be reviewable |
-| `fs/` | Filesystems; review value, mostly self-contained |
-| `security/` | Public review is the point of a security model |
-| `drivers/` | **Selected only** — see below |
-| `README.md`, `LICENSE`, `COPYRIGHT.md`, `NOTICE`, `CLA.md` | Required for any release |
-| `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md` | Community documents |
-| `DOCUMENTS/ARCHITECTURE.md` | Technical documentation |
-
-### Published, with conditions
-
-| Path | Condition |
-| --- | --- |
-| `drivers/` | Generic bus and platform drivers public; vendor-specific or performance-critical drivers private. The exact list is **pending** (D-13). |
-| `fs/` | `f2fs` and `ntfs` public. Whether `wfs` is public is **pending** (D-10). |
-| `crypto/` | Public review is desirable, but cryptographic source can attract export-control obligations in some jurisdictions. **Pending** (D-9). |
-
-### Not published
-
-| Path | Reason |
-| --- | --- |
-| `compat/` | Compatibility layer is a candidate commercial differentiator |
-| `firmware/` | Redistribution rights are unclear per blob |
-| `bin/` | Purpose undecided |
-| `test/` | Internal harness and hardware lab notes |
-| `DOCUMENTS/` (except `ARCHITECTURE.md`) | Business notes, roadmap, this policy |
-| Any future commercial service, toolchain, or product code | Commercial |
+| Path | Published | Note |
+| --- | --- | --- |
+| `kernel/` | Yes | Core of the project; highest learning and review value |
+| `hal/` | Yes | Needed to understand and port the kernel |
+| `gui/` | Yes | Visible, self-contained, good for contributors |
+| `boot/` | Yes, **blocked** | Provenance of `boot/bootmgrc/include/*` is unresolved; see Section 8 |
+| `fs/` | Yes | Includes `wfs` for now; see D-10 |
+| `security/` | Yes | Public review is the point of a security model |
+| `drivers/` | Yes, except `drivers/vendor/` | Boundary is a directory convention; see D-13 |
+| `DOCUMENTS/` | Yes | Architecture, licensing, publishing |
+| `README.md`, `LICENSE`, `COPYRIGHT.md`, `NOTICE`, `CLA.md` | Yes | Required for any release |
+| `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `AUTHORS.md` | Yes | Community documents |
+| `.github/`, `.clang-format`, `.editorconfig`, `.gitattributes`, `.gitignore` | Yes | Needed to contribute and build |
+| `compat/` | No | Candidate commercial differentiator |
+| `crypto/` | No | See D-9 |
+| `firmware/` | No | Redistribution rights unclear per blob |
+| `drivers/vendor/` | No | Vendor-specific drivers; see D-13 |
+| `test/` | No | Internal harness and hardware lab notes |
+| `bin/` | No | Purpose undecided |
+| Future commercial services, tooling, products | No | Commercial |
 
 ### Blocking condition
 
-No file may be published while its provenance is unresolved. The
-unattributed UEFI headers listed in [NOTICE](../NOTICE) currently **block
-publication of `boot/`**, because `boot/` was approved for publication but
-contains files whose license is unknown. This must be resolved first; see
+No file may be published while its provenance is unresolved. The unattributed
+UEFI headers listed in [NOTICE](../NOTICE) currently **block publication of
+`boot/`**. This must be resolved before the first release; see
 [PUBLISHING.md](PUBLISHING.md), step 2.
 
 ## 3. License of each tree
@@ -76,31 +87,28 @@ contains files whose license is unknown. This must be resolved first; see
 | Public release | `LicenseRef-Dust-OS-1.0` ([LICENSE](../LICENSE)) — source-available, proprietary |
 | Private tree | All rights reserved; no license granted to anyone |
 
-The public release is **not open source**. It does not meet the OSI definition,
-and must not be described as open source anywhere.
+The public release is **not open source**. It does not meet the OSI definition and
+must not be described as open source anywhere. Whether that changes is D-8.
 
 ## 4. Why source-available, and what it costs
 
 Source-available gives the Owner:
 
 - full control over redistribution and derivative works;
-- the ability to keep an exclusive commercial path;
+- an exclusive commercial path;
 - freedom to relicense future versions.
 
 It costs the project:
 
-- **most potential contributors.** Many developers will not contribute to a
-  project whose code they cannot reuse. The expected contribution volume is
-  therefore low, and the primary benefit of publishing is review and bug reports,
-  not code.
-- **community goodwill in some circles**, because source-available is often
-  perceived as "open enough to attract free labour, closed enough to keep the
-  business." This is a reputation cost, not a legal one.
+- **most potential contributors.** Many developers will not contribute to code
+  they cannot reuse. Expect bug reports and review, not a stream of pull requests.
+- **some community goodwill**, because source-available is often perceived as
+  "open enough to attract free labour, closed enough to keep the business". That
+  is a reputation cost, not a legal one.
 
 If contributions become the priority, the alternative is an open-core model: the
 public core under a genuine open source license (for example BSD-2-Clause), the
-private components proprietary. That is a different decision with different
-consequences, recorded as D-8. It is not in effect.
+private components proprietary. That is D-8 and it is **not** in effect.
 
 ## 5. Contributions
 
@@ -113,12 +121,14 @@ All contributions to the public release require [CLA.md](../CLA.md):
   as described in Section 5.4 of [LICENSE](../LICENSE);
 - a contributor who is a minor must have a parent or guardian accept the CLA.
 
-Because contribution requires assignment, contributions are accepted from people
-who are comfortable with that. Many are not. This is an accepted trade-off, not a
-bug to be fixed later by quietly changing the terms.
+Because contribution requires assignment, contributions come from people who are
+comfortable with that. Many are not. This is an accepted trade-off, recorded as
+D-14, not a bug to be fixed by quietly changing terms later.
 
-No GPL, LGPL, or AGPL code may be accepted. No code may be accepted from a project
-whose license is incompatible with a proprietary release.
+No GPL, LGPL, or AGPL code is accepted.
+
+Attribution is preserved in commit metadata and, with the contributor's consent,
+in [AUTHORS.md](../AUTHORS.md).
 
 ## 6. Relicensing, closing, and published history
 
@@ -130,15 +140,14 @@ whose license is incompatible with a proprietary release.
 | Relicense code contributed without a CLA | No, unless every contributor agrees or the code is removed |
 | Relicense code contributed under CLA.md | Yes |
 
-Publication policy:
+Publication rules:
 
 - Each release states its license explicitly.
-- A license change applies to future releases only. Previous releases remain
-  under the license they were published with.
+- A license change applies to future releases only. Previous releases remain under
+  the license they were published with.
 - A decision to stop publishing is announced with a reason and a date. The last
   published release stays available and stays under its license.
-- Commit history of the public release is never rewritten to hide a previous
-  license.
+- Published history is never rewritten to hide a previous license.
 
 ## 7. Business model
 
@@ -150,68 +159,94 @@ certification, proprietary drivers for specific hardware, and hosted services. T
 kernel itself is rarely the sellable part, which is why publishing it does not
 automatically leave "nothing to sell".
 
-Nothing in this document is a commitment to ship a product. The private tree may
-contain experiments that are never released commercially. Technical decisions
-must not be distorted to protect a business that does not exist yet.
+Nothing here commits the project to ship a product. Technical decisions must not be
+distorted to protect a business that does not exist yet. The governance question —
+single owner or a foundation — is D-15 and is deliberately unresolved.
 
 ## 8. Third-party code
 
 - Third-party components are identified in [NOTICE](../NOTICE) and are never
   relicensed.
 - A file with unresolved provenance is not published.
-- A public release must be distributable as a whole. One unattributed copyleft
-  file makes the entire release undistributable.
+- A public release must be distributable as a whole. One unattributed copyleft file
+  makes the entire release undistributable.
 
 ## 9. Trademark
 
-The licenses grant rights to code, not to the project's identity. The name
-"DUST-OS", "Dust OS", and any logo remain the Owner's. A fork or derivative
-distribution must not present itself as DUST-OS. See Section 12.6 of
-[LICENSE](../LICENSE).
+The licenses grant rights to code, not to the project's identity. "DUST-OS",
+"Dust OS", and any logo remain the Owner's. A fork or derivative distribution must
+not present itself as DUST-OS. See Section 12.6 of [LICENSE](../LICENSE).
 
 ## 10. Security
 
-The public release is readable by attackers as well as reviewers. That is
-accepted: the security model benefits more from review than it loses from
-disclosure. Vulnerability reports are handled privately under
-[SECURITY.md](../SECURITY.md) until a fix is available.
+The public release is readable by attackers as well as reviewers. That is accepted:
+the security model benefits more from review than it loses from disclosure.
+Vulnerability reports are handled privately under [SECURITY.md](../SECURITY.md)
+until a fix is available.
 
-## 11. Review
+## 11. Review and revisit triggers
 
 This policy is reviewed when:
 
-- a new component is proposed for publication;
+- a component is proposed for publication;
 - a component moves between the public and private trees;
 - the license of either tree changes;
-- contribution volume makes the assignment requirement a practical obstacle.
+- contribution volume makes the assignment requirement a practical obstacle;
+- the project gains a legal entity, revenue, or a second maintainer.
 
-## 12. Open decisions
+D-8 is revisited specifically when **any** of these becomes true:
 
-**D-8. Public license.** Keep `LicenseRef-Dust-OS-1.0` (source-available) or move
-the public core to a genuine open source license and keep only the commercial
-layer proprietary. Current: source-available.
+1. the kernel boots and prints to the screen;
+2. an external contributor asks to reuse published code in another project;
+3. the project receives its first contribution of non-trivial size;
+4. any commercial revenue exists.
 
-**D-9. `crypto/` publication.** Publish for review, or keep private for export
-control and commercial reasons. Current: private, pending.
+## 12. Decisions
 
-**D-10. `wfs` publication.** Publish the project's own filesystem, or keep it as
-the commercial filesystem and publish only `f2fs` and `ntfs`. Current: pending.
+Status legend: **Decided** — settled; **Provisional** — default in effect, expected
+to be revisited; **Pending** — not decided, do not treat as settled.
 
-**D-11. Public build.** Whether the public release builds from the same
-`CMakeLists.txt` as the private tree (which requires that file to reference only
-public paths), or ships its own build description generated at export time.
-Current: undecided; the public release must build on its own before it is
-published.
+Technical decisions D-1 to D-7 live in
+[ARCHITECTURE.md](ARCHITECTURE.md#10-open-decisions).
 
-**D-12. Sync direction.** Whether the public repository is canonical for the
-published paths (contributions land there and are pulled into the private tree),
-or a read-only export snapshot (contributions arrive as patches and are applied
-manually). Current: undecided; a snapshot is simpler, canonical-public is better
-for contributors.
+**D-8. Public license.** *Pending.* Keep `LicenseRef-Dust-OS-1.0`
+(source-available) or move the public core to a genuine open source license and
+keep only the commercial layer proprietary. Currently in effect:
+source-available, because that matches the plan of record and is reversible only
+in the sense described in Section 6.
 
-**D-13. Driver boundary.** The exact list of public and private drivers. Current:
-generic buses public, vendor-specific private.
+**D-9. `crypto/` publication.** *Decided (provisional).* Private for now.
+Rationale: export-control considerations in some jurisdictions, and cryptographic
+code is a plausible commercial component. Revisit if review value outweighs both.
 
-**D-14. Contribution terms.** Copyright assignment (current, strongest for
-relicensing) or a broad perpetual license grant (friendlier to contributors,
-weaker for closing). Current: assignment.
+**D-10. `wfs` publication.** *Decided (provisional).* Published with `fs/`,
+because filesystems are in the approved scope. If `wfs` becomes the commercial
+filesystem, move it to a private path in a future release and leave earlier
+releases under their original license.
+
+**D-11. Public build.** *Decided.* A public snapshot must build on its own from a
+clean clone. If the private build description references private paths, the export
+carries a build description that references only published paths. A snapshot that
+does not build may still be released, but the release notes must say so.
+
+**D-12. Sync direction.** *Decided (provisional).* Snapshot: the private tree is
+canonical, and public contributions are applied to the private tree manually. This
+is the simplest safe option for a single maintainer. Revisit when there is a
+second regular contributor.
+
+**D-13. Driver boundary.** *Decided.* Vendor-specific drivers live under
+`drivers/vendor/` and are private. Everything else under `drivers/` is publishable.
+The boundary is a directory convention so that it is mechanically checkable.
+
+**D-14. Contribution terms.** *Decided.* Copyright assignment under
+[CLA.md](../CLA.md). It is the strongest option for relicensing and closing, and
+it is stated openly so that no contributor can claim surprise.
+
+**D-15. Governance.** *Pending.* Single owner or a foundation. A foundation
+requires a legal entity, a board, bylaws, and transfer of copyright and trademark;
+none of that exists. Until it does, the single-owner model applies, and this
+document plus [LICENSE](../LICENSE) is the governance.
+
+**D-16. Release cadence.** *Decided.* Milestone snapshots tagged `v0.x.y`, not a
+per-commit mirror. Each release has notes listing what is included, what is
+excluded, and what is known broken.

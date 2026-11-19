@@ -9,6 +9,8 @@ before you start. Submitting a pull request means you accept all three.
 All contributions are made under [CLA.md](CLA.md), which assigns economic
 copyright in the contribution to the maintainer. Contributors keep their moral
 rights. If you are a minor, a parent or guardian must consent (CLA 3.5).
+Attribution is preserved in commit metadata and, with your consent, in
+[AUTHORS.md](AUTHORS.md).
 
 ---
 

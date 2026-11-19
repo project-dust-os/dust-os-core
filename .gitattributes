@@ -42,6 +42,7 @@ crypto/                   export-ignore
 firmware/                 export-ignore
 test/                     export-ignore
 bin/                      export-ignore
+drivers/vendor/           export-ignore
 
 # DOCUMENTS/ is published by default (ARCHITECTURE.md, LICENSING.md,
 # PUBLISHING.md). Add a line here for any future document that must stay private.

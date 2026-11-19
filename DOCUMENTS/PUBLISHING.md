@@ -28,7 +28,11 @@ Run every step before the first public release and before every later release.
 ### Step 1 — Scope
 
 - [ ] Every published path is listed as published in LICENSING.md.
+- [ ] The snapshot is generated from [PUBLIC_PATHS.txt](../PUBLIC_PATHS.txt), and
+      every included path appears there.
 - [ ] No path marked private is present in the snapshot.
+- [ ] Only files tracked by git are copied; no build output and no untracked file
+      enters the snapshot.
 - [ ] Public headers do not include private headers. Build the snapshot from a
       clean clone to prove it.
 - [ ] Nothing in the snapshot imports a private build file that references paths

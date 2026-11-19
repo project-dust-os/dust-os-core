@@ -36,10 +36,11 @@ boot path built in this repository.
 ## Public release
 
 This repository is the private development tree. A curated subset — the kernel,
-HAL, GUI, boot path, filesystems, security, and selected drivers — is published
+HAL, GUI, boot path, filesystems, security, and non-vendor drivers — is published
 separately as a source-available release. Code outside that subset is not
 published. The scope is recorded in
-[DOCUMENTS/LICENSING.md](DOCUMENTS/LICENSING.md); the release procedure is in
+[DOCUMENTS/LICENSING.md](DOCUMENTS/LICENSING.md), the machine-readable allow-list
+is [PUBLIC_PATHS.txt](PUBLIC_PATHS.txt), and the release procedure is in
 [DOCUMENTS/PUBLISHING.md](DOCUMENTS/PUBLISHING.md).
 
 ## Goals
