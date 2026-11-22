@@ -1,0 +1,31 @@
+# CODEOWNERS
+#
+# Path ownership for review routing. A matching path requires approval from the
+# listed owner. The Owner is the only approver for protected paths.
+#
+# Rules: DOCUMENTS/IP_POLICY.md, Section 4
+# Handbook: CONTRIBUTING.md, Section 7
+
+# Default: every path is owned by the project owner.
+*                                   @devennw
+
+# Legal, policy, and ownership records: Owner only.
+/LICENSE                            @devennw
+/COPYRIGHT.md                       @devennw
+/NOTICE                             @devennw
+/LEGAL/                             @devennw
+/DOCUMENTS/IP_POLICY.md             @devennw
+/DOCUMENTS/RELEASE_PROCESS.md       @devennw
+/.github/                           @devennw
+
+# Security-sensitive code: Owner approval required.
+/kernel/mm/                         @devennw
+/kernel/ke/                         @devennw
+/boot/                              @devennw
+/crypto/                            @devennw
+/security/                          @devennw
+
+# Release and build control.
+/CMakeLists.txt                     @devennw
+/.gitattributes                     @devennw
+/.gitignore                         @devennw

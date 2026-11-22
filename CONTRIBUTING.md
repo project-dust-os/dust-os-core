@@ -1,55 +1,75 @@
-# Contributing to DUST-OS
+# Engineering Handbook
 
-Thanks for your interest. DUST-OS is a proprietary, source-available project
-maintained by one person. Contributions are accepted selectively.
+This is the internal engineering handbook for DUST-OS. It applies to the Owner,
+employees, contractors, interns, and any other person with repository access —
+collectively, "team members".
 
-Please read this document, [CLA.md](CLA.md), and Section 5 of [LICENSE](LICENSE)
-before you start. Submitting a pull request means you accept all three.
-
-All contributions are made under [CLA.md](CLA.md), which assigns economic
-copyright in the contribution to the maintainer. Contributors keep their moral
-rights. If you are a minor, a parent or guardian must consent (CLA 3.5).
-Attribution is preserved in commit metadata and, with your consent, in
-[AUTHORS.md](AUTHORS.md).
+This repository is private and the software is proprietary. Read
+[LICENSE](LICENSE), [DOCUMENTS/IP_POLICY.md](DOCUMENTS/IP_POLICY.md), and
+[DOCUMENTS/ARCHITECTURE.md](DOCUMENTS/ARCHITECTURE.md) before your first change.
 
 ---
 
 ## 1. Before you write code
 
-1. **Check the publication scope.** Only the subset listed in
-   [DOCUMENTS/LICENSING.md](DOCUMENTS/LICENSING.md) is public. A change outside
-   that scope will be redirected or declined, even if it is good work.
-2. **Open an issue first** for anything larger than a typo. Describe the problem
-   and your proposed approach. This avoids wasted work on a design the maintainer
-   will not accept.
-3. **Read [DOCUMENTS/ARCHITECTURE.md](DOCUMENTS/ARCHITECTURE.md).** It records the current
-   state, the design decisions, and the open questions. A change that contradicts
-   a recorded decision needs that decision reopened first.
-4. **One logical change per pull request.** File moves, formatting, and behaviour
-   changes go in separate commits.
+1. **Have a task.** Work starts from an issue or a written task with a defined
+   outcome. Unrequested large changes are not merged, even when they are good.
+2. **Read the architecture.** A change that contradicts a recorded decision (D-1
+   to D-7 in ARCHITECTURE.md) requires reopening that decision first.
+3. **Check the IP policy.** No third-party code, no copied snippet, and no
+   AI-generated code of unknown provenance enters the repository without
+   approval. See Section 8.
+4. **Sign the paperwork.** Your IP assignment must be on file before your first
+   commit is merged. See Section 9.
 
-## 2. What is accepted
+## 2. Access and branch rules
+
+| Rule | Requirement |
+| --- | --- |
+| Authentication | Multi-factor authentication is mandatory |
+| Default branch | `main`, protected; no direct pushes, including by the Owner |
+| Change path | Every change lands through a pull request |
+| Review | At least one approving review; the Owner approves protected areas |
+| Commits | Signed off (`git commit -s`); signed commits where configured |
+| Force push | Not allowed on `main`; avoid on shared branches |
+| Secrets | Never committed; see Section 8 |
+| Access removal | On the day an engagement ends |
+
+Branch names:
+
+```
+feat/<short-name>      new capability
+fix/<short-name>       defect fix
+docs/<short-name>      documentation only
+chore/<short-name>     build, tooling, cleanup
+release/<version>      release preparation
+```
+
+One logical change per pull request. File moves, formatting, and behaviour changes
+go in separate commits.
+
+## 3. What is accepted
 
 Accepted:
 
-- Fixes for defects in existing code, with a clear explanation of the root cause.
-- Implementations of items listed in the roadmap, at the stage they are listed.
-- Documentation corrections, including spelling and factual errors.
-- Improvements to build reproducibility.
+- fixes for defects in existing code, with a clear explanation of the root cause;
+- implementations of items on the roadmap, at the stage they are listed;
+- documentation corrections, including factual errors;
+- improvements to build reproducibility and test coverage.
 
 Not accepted:
 
-- Code you cannot explain line by line. This project is a learning exercise; a
-  contributor who cannot explain their code cannot maintain it.
-- Code copied from another project without a compatible license and full
-  attribution. **GPL, LGPL, and AGPL code is incompatible with this project and
-  must not be submitted.**
-- Large rewrites submitted without prior discussion.
-- Generated code that the submitter has not reviewed.
-- Changes to [LICENSE](LICENSE), [COPYRIGHT.md](COPYRIGHT.md), or [NOTICE](NOTICE)
-  — these are maintainer-only files.
+- code you cannot explain line by line — if you cannot maintain it, it does not
+  belong here;
+- code copied from another project without an approved license and full
+  attribution;
+- GPL, LGPL, AGPL, or SSPL code under any circumstances;
+- large rewrites without prior discussion;
+- generated code that has not been reviewed and understood by the author;
+- changes to [LICENSE](LICENSE), [COPYRIGHT.md](COPYRIGHT.md), [NOTICE](NOTICE),
+  `LEGAL/`, or this document's policy sections — these are Owner-only files.
 
-## 3. Code style
+## 4. Code style
 
 The project follows a Linux-kernel-like C style, enforced by `.clang-format` and
 `.editorconfig`:
@@ -65,18 +85,18 @@ The project follows a Linux-kernel-like C style, enforced by `.clang-format` and
 
 Run `clang-format -i` on every file you touch before committing.
 
-Kernel constraints, which are not style preferences:
+Kernel constraints, which are correctness requirements rather than preferences:
 
 - **Freestanding only.** No libc. No hosted headers beyond the freestanding set
   (`stdint.h`, `stddef.h`, `stdbool.h`, `stdatomic.h`, `stdalign.h`,
   `stdnoreturn.h`).
 - **No floating point and no SIMD** in kernel code. The build disables SSE, MMX,
-  and AVX; a contributor who reintroduces them breaks interrupt handling.
+  and AVX; reintroducing them breaks interrupt handling.
 - **No dynamic relocation.** Position-independent code is disabled.
-- **Every allocation has one documented owner.** State in the commit message who
+- **Every allocation has one documented owner.** State in the pull request who
   allocates and who frees.
 
-## 4. Commit messages
+## 5. Commit messages
 
 - Subject line: imperative mood, at most 72 characters, no trailing period.
   Example: `kern: fix list_head prev pointer type`
@@ -85,7 +105,7 @@ Kernel constraints, which are not style preferences:
 - Sign off every commit (`git commit -s`) to certify that you wrote the code or
   have the right to submit it.
 
-## 5. Testing and disclosure
+## 6. Testing and evidence
 
 A pull request must state:
 
@@ -93,28 +113,80 @@ A pull request must state:
 2. **What you did not test**, and why.
 3. **Known defects or limitations** in your change.
 
-A contributor is responsible for the correctness of what they submit, as set out
-in Section 5.4 of [LICENSE](LICENSE). Undisclosed known defects are a breach of
-that section.
+Rules:
 
-## 6. Review process
+- A change that affects boot must include serial output from a successful boot.
+- A change that affects memory management must state how you checked for leaks,
+  double frees, and use-after-free.
+- A change that affects the boot contract must update the contract document and
+  the shared header in the same pull request.
+- "Works on my machine" is not evidence. Include the command and the output.
+- Undisclosed known defects are treated as a breach of trust, not as an oversight.
 
-- The maintainer reviews on a best-effort basis. There is no service-level
-  commitment.
-- Reviews focus first on correctness and safety, then on style.
-- The maintainer may reject, request changes, or revert a contribution at any
-  time, as described in Section 5.6 of [LICENSE](LICENSE).
+## 7. Review
 
-## 7. Reporting bugs
+- Reviews focus first on correctness, safety, and the boot contract, then on
+  style.
+- Reviewers may reject, request changes, or revert a change at any time.
+- The author resolves comments; the reviewer resolves the thread.
+- A review is not a guarantee. The author remains responsible for the change.
+- Protected paths require the Owner's approval; see `.github/CODEOWNERS`.
+
+## 8. IP, confidentiality, and dependencies
+
+- **Your work is assigned to the Owner.** See Section 9.
+- **No third-party code without approval.** Ask before you paste. A snippet from
+  a blog, a forum, or another repository is third-party code.
+- **Permitted licenses** are listed in
+  [DOCUMENTS/IP_POLICY.md](DOCUMENTS/IP_POLICY.md), Section 6. Copyleft is
+  prohibited.
+- **No secrets in the repository.** Never commit credentials, keys, tokens,
+  customer data, or personal data. Use the approved secret store.
+- **No personal cloud or paste services.** Source, logs, screenshots, and
+  crash dumps stay in approved systems.
+- **No AI training.** Do not upload the repository to a service that trains on
+  it. AI assistants may be used only under the policy in IP_POLICY.md, Section 9.
+- **Report a leak immediately.** If you suspect that confidential material was
+  exposed, tell the Owner at once; do not try to clean it up silently.
+
+## 9. Paperwork for team members
+
+Before your first merged commit you must have:
+
+1. a signed IP assignment — [LEGAL/IP_ASSIGNMENT.md](LEGAL/IP_ASSIGNMENT.md);
+2. a signed NDA, if you will see Restricted material —
+   [LEGAL/NDA.md](LEGAL/NDA.md);
+3. if you are a minor, a parent or legal guardian's signature on both;
+4. a named access level and the systems you are allowed to use.
+
+No exceptions. A commit without paperwork is removed from the history.
+
+## 10. Reporting bugs
 
 Include:
 
-- The exact commit hash.
-- Toolchain versions (`clang --version`, `cmake --version`).
-- The QEMU invocation or the hardware used.
-- The full serial or console output, not a paraphrase.
-- Steps to reproduce, and what you expected instead.
+- the exact commit hash or release tag;
+- toolchain versions (`clang --version`, `cmake --version`);
+- the QEMU invocation or the hardware used;
+- the full serial or console output, not a paraphrase;
+- steps to reproduce, and what you expected instead.
 
-## 8. Code of conduct
+Security issues do not go in the issue tracker. See [SECURITY.md](SECURITY.md).
 
-All participation is governed by [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+## 11. Conduct
+
+All participation is governed by [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). The
+project is a professional workplace, including when it is remote and informal.
+
+## 12. When in doubt
+
+Ask before you act on anything involving:
+
+- a new dependency;
+- a license or copyright question;
+- customer data;
+- a public statement about the project;
+- a change to the boot contract.
+
+The cost of a question is minutes. The cost of an unlicensed dependency in a
+shipped product is the product.

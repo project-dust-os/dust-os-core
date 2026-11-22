@@ -5,9 +5,12 @@ labels: bug
 ---
 
 <!--
+Internal tracker. The repository is private.
+
 Do not use this template for security issues. See SECURITY.md.
-Read DOCUMENTS/LICENSING.md before reporting; only the published subset is in
-scope for the public release.
+Do not paste customer data, credentials, or Restricted material.
+A report inherits the classification of the material it contains; default:
+Confidential.
 -->
 
 ## What happens
@@ -48,9 +51,10 @@ paraphrase it; the exact text usually contains the answer.
 
 ## Scope check
 
-- [ ] This is in the published subset described in `DOCUMENTS/LICENSING.md`.
 - [ ] This is not a security issue. Security reports go to the address in `SECURITY.md`.
+- [ ] This contains no customer data, credentials, or Restricted material.
 - [ ] I searched existing issues for the same defect.
+- [ ] I can reproduce it on a recorded environment.
 
 ## Additional context
 

@@ -3,15 +3,16 @@
 ![Status](https://img.shields.io/badge/status-pre--alpha-orange)
 ![Architecture](https://img.shields.io/badge/arch-x86__64-blue)
 ![License](https://img.shields.io/badge/license-proprietary-lightgrey)
+![Visibility](https://img.shields.io/badge/repository-private-black)
 
 An operating system written from scratch for x86-64, aiming at a hybrid kernel
 architecture: a compact monolithic core today, with message-passing interfaces
 designed so that components can move into user space later without a rewrite.
 
-DUST-OS is an educational, single-maintainer project. It is not a fork of an
-existing operating system, and it is not derived from Linux, Windows, or any
-other kernel. It targets real x86-64 hardware and QEMU, and it is loaded by a
-boot path built in this repository.
+DUST-OS is a private, proprietary project. It is not a fork of an existing
+operating system, and it is not derived from Linux, Windows, or any other kernel.
+It targets real x86-64 hardware and QEMU, and it is loaded by a boot path built in
+this repository.
 
 ---
 
@@ -33,15 +34,22 @@ boot path built in this repository.
 | IPC | Header-level design only |
 | Filesystems, drivers, user space | Placeholders |
 
-## Public release
+## Project model
 
-This repository is the private development tree. A curated subset — the kernel,
-HAL, GUI, boot path, filesystems, security, and non-vendor drivers — is published
-separately as a source-available release. Code outside that subset is not
-published. The scope is recorded in
-[DOCUMENTS/LICENSING.md](DOCUMENTS/LICENSING.md), the machine-readable allow-list
-is [PUBLIC_PATHS.txt](PUBLIC_PATHS.txt), and the release procedure is in
-[DOCUMENTS/PUBLISHING.md](DOCUMENTS/PUBLISHING.md).
+DUST-OS is developed in a private repository and is intended to become a
+commercial product. Its source code is not published, and it is **not open source
+and not source-available**.
+
+| Item | Policy |
+| --- | --- |
+| Repository | Private; access by named Authorised Persons only |
+| Source code | Proprietary and confidential |
+| Customer delivery | Binary artifacts and documentation under a commercial agreement |
+| Third-party code | Allow-list only, recorded in [NOTICE](NOTICE) |
+| Business model | Commercial licensing, support, and integration; see [DOCUMENTS/IP_POLICY.md](DOCUMENTS/IP_POLICY.md) |
+
+Nothing in this repository grants a license to anyone. The binding terms are in
+[LICENSE](LICENSE).
 
 ## Goals
 
@@ -90,6 +98,7 @@ firmware/      Firmware tables and blobs (placeholder)
 test/          Tests and test harnesses (placeholder)
 bin/           Reserved; purpose not yet decided
 DOCUMENTS/     Project documentation
+LEGAL/         Contract templates; not legal advice
 ```
 
 The repository is being reorganised, so tracked paths may lag behind the working
@@ -97,12 +106,12 @@ tree during a move. Commits that move files should contain nothing else.
 
 ## Boot path
 
-DUST-OS is intended to ship its own UEFI boot application, located in
-`boot/bootmgrc/`. That application is the only supported boot path. It is
-currently a stub: it prints a string and halts, and it does not load a kernel.
+DUST-OS ships its own UEFI boot application, located in `boot/bootmgrc/`. That
+application is the only supported boot path. It is currently a stub: it prints a
+string and halts, and it does not load a kernel.
 
 Because the boot path is in-house, **the boot contract is part of the project and
-must be documented here**: the CPU mode on entry, the location and contents of the
+must be documented**: the CPU mode on entry, the location and contents of the
 boot information structure, the initial stack, and the ownership of memory handed
 to the kernel. That contract is the kernel's first ABI. It will be written down as
 it stabilises.
@@ -134,40 +143,56 @@ The compiler is used in freestanding mode with position-independent code
 disabled, the x86-64 red zone disabled, and floating point/SIMD code generation
 disabled. See `CMakeLists.txt` for the exact flag set.
 
-## Contributing
+## Working on DUST-OS
 
-Contributions are welcome, but this is a proprietary project: submitting a
-contribution assigns copyright in it to the maintainer and carries a correctness
-warranty. Read [CONTRIBUTING.md](CONTRIBUTING.md), [CLA.md](CLA.md), and Section 5
-of [LICENSE](LICENSE) before opening a pull request.
+The repository is private and every team member works under a signed IP
+assignment and NDA. Start with:
+
+- [CONTRIBUTING.md](CONTRIBUTING.md) — engineering handbook, branch rules, review,
+  testing evidence;
+- [DOCUMENTS/ARCHITECTURE.md](DOCUMENTS/ARCHITECTURE.md) — what the system is meant
+  to be and what is currently broken;
+- [DOCUMENTS/TEAM.md](DOCUMENTS/TEAM.md) — roles, onboarding, and hiring
+  readiness;
+- [DOCUMENTS/IP_POLICY.md](DOCUMENTS/IP_POLICY.md) — ownership, confidentiality,
+  third-party code, and customer licensing.
 
 ## Security
 
-Do not report security issues in public issues. See [SECURITY.md](SECURITY.md).
+Do not report security issues in an issue or pull request. See
+[SECURITY.md](SECURITY.md) for the private channel and response targets.
+
+## Documentation
+
+| Document | Purpose |
+| --- | --- |
+| [DOCUMENTS/ARCHITECTURE.md](DOCUMENTS/ARCHITECTURE.md) | System design, technical debt, decisions D-1 to D-7 |
+| [DOCUMENTS/IP_POLICY.md](DOCUMENTS/IP_POLICY.md) | Ownership, confidentiality, third-party code, licensing, decisions D-8 to D-18 |
+| [DOCUMENTS/RELEASE_PROCESS.md](DOCUMENTS/RELEASE_PROCESS.md) | Versioning, quality gates, signing, distribution, rollback |
+| [DOCUMENTS/TEAM.md](DOCUMENTS/TEAM.md) | Roles, team size, onboarding, hiring readiness |
+| [DOCUMENTS/BRAND.md](DOCUMENTS/BRAND.md) | Brand usage, claims policy, public communication |
+| [DOCUMENTS/README.md](DOCUMENTS/README.md) | Documentation index and decision index |
+| [LEGAL/README.md](LEGAL/README.md) | Contract templates and execution rules |
 
 ## License
 
-DUST-OS is **source-available and proprietary**. It is **not** open source.
+DUST-OS is **proprietary and confidential**. It is **not** open source and it is
+**not** source-available.
 
 | Action | Permitted |
 | --- | --- |
-| Read and study the source | Yes |
-| Build and run locally for personal study | Yes |
-| Quote short excerpts with attribution | Yes |
+| Access without a written agreement | No |
+| Read, build, or run outside an agreement | No |
 | Copy code into another project | No |
 | Modify, fork, or publish derivative works | No |
 | Distribute the source or binaries | No |
-| Commercial use | No |
-| Use as training data for AI models | No |
+| Commercial use without a license | No |
+| Use as training data for AI models | No, without written permission |
 
-See [LICENSE](LICENSE) for the binding terms, [COPYRIGHT.md](COPYRIGHT.md) for
+Access is granted only to Authorised Persons under a signed agreement. See
+[LICENSE](LICENSE) for the binding notice, [COPYRIGHT.md](COPYRIGHT.md) for
 ownership, and [NOTICE](NOTICE) for third-party components and code of unresolved
 provenance.
-
-Contributions to the public release require the Contributor License Agreement in
-[CLA.md](CLA.md). The published subset uses the same license as the private tree.
-See [DOCUMENTS/LICENSING.md](DOCUMENTS/LICENSING.md) for the publication scope and
-[DOCUMENTS/PUBLISHING.md](DOCUMENTS/PUBLISHING.md) for how a release is produced.
 
 ## Acknowledgements
 

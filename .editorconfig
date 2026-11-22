@@ -11,7 +11,7 @@ trim_trailing_whitespace = true
 indent_style = tab
 indent_size = 8
 
-[*.{c,h,S,s,ld}]
+[*.{asm,c,h,S,s,ld}]
 # Kernel style: hard tabs, 8 columns, 80-column limit enforced by clang-format.
 indent_style = tab
 indent_size = 8

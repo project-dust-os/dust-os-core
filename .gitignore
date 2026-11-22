@@ -54,3 +54,38 @@ desktop.ini
 *.log
 *.tmp
 *.bak
+
+# ---------------------------------------------------------------------------
+# Secrets and credentials — never commit these.
+#
+# This list is a safety net, not a guarantee. Use the approved secret store.
+# If a secret is committed by accident, rotate it first, then clean history.
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.kdbx
+id_rsa*
+id_ecdsa*
+id_ed25519*
+*.asc
+*.gpg
+*.kubeconfig
+*credentials*.json
+*token*.json
+
+# Crash dumps and memory images may contain customer data.
+*.dmp
+*.core
+core
+
+# Signed agreements and contract records are kept outside the repository.
+LEGAL/signed/
+contracts/

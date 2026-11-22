@@ -6,14 +6,27 @@
 
 <!-- Bullet points. Mention files or subsystems touched. -->
 
-## Scope
+## Related issue
 
-- [ ] This change belongs to the **public subset** described in `DOCUMENTS/LICENSING.md`.
-- [ ] I have read and accept `CLA.md` and Section 5 of `LICENSE`.
-- [ ] I am 18 or older, or my parent/guardian consents on my behalf (CLA 3.5).
-- [ ] This is my original work, or I hold the rights to submit it.
-- [ ] It contains no GPL, LGPL, or AGPL code.
-- [ ] My commits are signed off (`git commit -s`).
+<!-- Fixes #, closes #, or "none". Work without an issue needs a reason. -->
+
+## Author checklist
+
+- [ ] My IP assignment and NDA are signed and on file.
+- [ ] This is my original work, or the third-party code is approved and recorded
+      in `NOTICE`.
+- [ ] It contains no GPL, LGPL, AGPL, or SSPL code.
+- [ ] I understand every line and can explain it in review.
+- [ ] Material AI assistance is disclosed below.
+- [ ] No secrets, credentials, customer data, or personal data are included.
+- [ ] No direct push to `main`; this change arrives through this pull request.
+- [ ] Commits are signed off (`git commit -s`).
+- [ ] Documentation and `CHANGELOG.md` are updated if behaviour changed.
+- [ ] The boot contract and its shared header are updated together, if touched.
+
+## AI assistance
+
+<!-- Required if used. Say which tool and which parts. Write "none" otherwise. -->
 
 ## Testing
 
@@ -24,10 +37,22 @@
 - What was tested:
 - What was **not** tested, and why:
 
+## Boot evidence
+
+<!-- Required for boot, memory-management, and privilege-boundary changes.
+Paste the serial log between the fences. -->
+
+```
+```
+
 ## Known defects and limitations
 
 <!-- Required. "None known" is an acceptable answer only if true. -->
 
-## Related issues
+## Release impact
 
-<!-- Fixes #, closes #, or "none". -->
+- [ ] No customer-visible change
+- [ ] Needs a release note
+- [ ] Changes the boot contract or ABI
+- [ ] Changes a third-party dependency
+- [ ] Security-sensitive; review requested

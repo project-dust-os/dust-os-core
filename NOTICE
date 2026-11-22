@@ -1,25 +1,27 @@
 # Third-Party Notices
 
-DUST-OS contains code whose origin is not yet established, and is developed
+DUST-OS contains code whose origin is not yet established, and it is developed
 against public specifications. This file records both. It is referenced by
-Section 6 of [LICENSE](LICENSE).
+Section 8 of [LICENSE](LICENSE) and by
+[DOCUMENTS/IP_POLICY.md](DOCUMENTS/IP_POLICY.md).
 
-**Publication status:** the files in Section 1 block publication of the directories
-that contain them. They must be resolved before the public source release ships;
-see [DOCUMENTS/LICENSING.md](DOCUMENTS/LICENSING.md) and
-[DOCUMENTS/PUBLISHING.md](DOCUMENTS/PUBLISHING.md).
+**Release status:** the files in Section 1 block commercial distribution. No
+customer release, evaluation build, binary, SDK, demo, or source disclosure may
+contain them until each file is attributed, rewritten, or removed. See the gate
+in [DOCUMENTS/RELEASE_PROCESS.md](DOCUMENTS/RELEASE_PROCESS.md), Section 4.
 
 If a third-party component is added to this repository in the future, it must be
-recorded here with its upstream URL, its license, and the full license text,
-before it is committed.
+recorded here with its upstream URL, version, license, copyright line, and full
+license text before it is committed, and approved under the policy in
+[DOCUMENTS/IP_POLICY.md](DOCUMENTS/IP_POLICY.md), Section 6.
 
 ---
 
 ## 1. Code of unresolved provenance — ACTION REQUIRED
 
 The following files under `boot/bootmgrc/` appear to be adapted from an external
-project. They carry no copyright header, no SPDX identifier, and no license
-text. Their origin has not yet been established.
+project. They carry no copyright header, no SPDX identifier, and no license text.
+Their origin has not yet been established.
 
 | Path | Status |
 | --- | --- |
@@ -35,22 +37,40 @@ text. Their origin has not yet been established.
 | `boot/bootmgrc/src/sys/handoff.*` | Provenance unknown |
 
 **Until each file's origin is identified, that file must be treated as
-third-party code.** It must not be relicensed under LICENSE, and the repository
-must not be published as if the copyright holder owned it.
+third-party code.** It must not be relicensed under LICENSE, and it must not be
+shipped in any deliverable.
 
 To resolve this, for each file either:
 
-1. locate the upstream project, record its URL, license, and copyright line in
-   this table, and preserve the original notice; or
+1. locate the upstream project, record its URL, version, license, and copyright
+   line in this table, and preserve the original notice; or
 2. replace the file with an original implementation written for DUST-OS; or
 3. remove the file entirely.
 
 Do not guess the license. An unattributed copyleft file would make the whole
-repository undistributable under its current terms.
+product undistributable under its current terms.
+
+Once a file is resolved, move it to Section 2 and record the evidence (commit,
+upstream tag, and license text) in the release record.
 
 ---
 
-## 2. Specifications
+## 2. Third-party components
+
+No third-party component is currently vendored in this repository.
+
+When one is added, record it here in this form:
+
+| Component | Version | Upstream | License | Used in |
+| --- | --- | --- | --- | --- |
+| _none_ | — | — | — | — |
+
+The full license text of every shipped component is stored with the release
+artifacts and listed in the SBOM.
+
+---
+
+## 3. Specifications and references
 
 The implementation refers to the following specifications. Specifications are not
 source code and impose no license obligation on this repository, but they are the
@@ -60,3 +80,6 @@ authoritative reference for the interfaces implemented here.
 - **ACPI Specification** — https://uefi.org/specifications
 - **Intel 64 and IA-32 Architectures Software Developer's Manual** — https://www.intel.com/sdm
 - **OSDev Wiki** — https://wiki.osdev.org (educational reference only)
+
+No affiliation with, endorsement by, or sponsorship from any of the above is
+claimed.

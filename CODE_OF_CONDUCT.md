@@ -1,133 +1,101 @@
-# Contributor Covenant Code of Conduct
+# Code of Conduct
 
-## Our Pledge
+This Code of Conduct applies to everyone who works on or represents DUST-OS: the
+Owner, employees, contractors, interns, advisers, and anyone with repository or
+customer access.
 
-We as members, contributors, and leaders pledge to make participation in our
-community a harassment-free experience for everyone, regardless of age, body
-size, visible or invisible disability, ethnicity, sex characteristics, gender
-identity and expression, level of experience, education, socio-economic status,
-nationality, personal appearance, race, caste, color, religion, or sexual
-identity and orientation.
+DUST-OS is a private professional project. The standards below apply in the
+repository, in issues and reviews, in chat and email, at events, and in any
+customer or partner interaction.
 
-We pledge to act and interact in ways that contribute to an open, welcoming,
-diverse, inclusive, and healthy community.
+---
 
-## Our Standards
+## 1. Expected behaviour
 
-Examples of behavior that contributes to a positive environment for our
-community include:
+- Treat people with respect, including when you disagree with their technical
+  judgement.
+- Give specific, actionable feedback about code and decisions, not about people.
+- Accept correction and apologise when you cause harm.
+- Share context: decisions, constraints, and uncertainty belong in writing.
+- Protect confidential information and personal data.
+- Credit other people's work accurately.
+- Ask when you are unsure about a legal, security, or customer-facing question.
 
-- Demonstrating empathy and kindness toward other people
-- Being respectful of differing opinions, viewpoints, and experiences
-- Giving and gracefully accepting constructive feedback
-- Accepting responsibility and apologizing to those affected by our mistakes,
-  and learning from the experience
-- Focusing on what is best not just for us as individuals, but for the overall
-  community
+## 2. Unacceptable behaviour
 
-Examples of unacceptable behavior include:
+- Harassment, intimidation, threats, or discrimination of any kind.
+- Sexualised language or imagery, and unwelcome sexual attention.
+- Personal or political attacks, trolling, or deliberate humiliation.
+- Publishing someone's private information without explicit permission.
+- Retaliation against a person who reports a concern.
+- Knowingly submitting code you do not have the right to submit.
+- Concealing a defect, security issue, or data leak.
+- Misrepresenting the project, its capabilities, or its customers.
+- Any conduct that would be unacceptable in a professional workplace.
 
-- The use of sexualized language or imagery, and sexual attention or advances of
-  any kind
-- Trolling, insulting or derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or email address,
-  without their explicit permission
-- Other conduct which could reasonably be considered inappropriate in a
-  professional setting
+## 3. Scope
 
-## Enforcement Responsibilities
+This Code applies:
 
-Community leaders are responsible for clarifying and enforcing our standards of
-acceptable behavior and will take appropriate and fair corrective action in
-response to any behavior that they deem inappropriate, threatening, offensive,
-or harmful.
+- in the repository, issue tracker, reviews, and commit messages;
+- in project chat, email, calls, and meetings;
+- at conferences, events, and customer sites when representing DUST-OS;
+- when using a project account or address.
 
-Community leaders have the right and responsibility to remove, edit, or reject
-comments, commits, code, wiki edits, issues, and other contributions that are
-not aligned to this Code of Conduct, and will communicate reasons for moderation
-decisions when appropriate.
+## 4. Reporting
 
-## Scope
+Report a concern to:
 
-This Code of Conduct applies within all community spaces, and also applies when
-an individual is officially representing the community in public spaces.
-Examples of representing our community include using an official email address,
-posting via an official social media account, or acting as an appointed
-representative at an online or offline event.
+**dvennote65@gmail.com**
 
-## Enforcement
+Reports are handled confidentially. Include what happened, when, where, who was
+involved, and any evidence. If the concern involves the Owner, report it to the
+Owner's parent or guardian, or to the adult responsible for the legal entity once
+one exists.
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-**dvennote65@gmail.com**.
+Do not investigate on your own, and do not retaliate.
 
-All complaints will be reviewed and investigated promptly and fairly.
+## 5. Enforcement
 
-All community leaders are obligated to respect the privacy and security of the
-reporter of any incident.
+The Owner, or a person appointed by the Owner, will:
 
-## Enforcement Guidelines
+1. acknowledge the report;
+2. assess the facts and any conflict of interest;
+3. decide on interim measures, such as limiting contact or access;
+4. decide on an outcome;
+5. record the decision and the reasons.
 
-Community leaders will follow these Community Impact Guidelines in determining
-the consequences for any action they deem in violation of this Code of Conduct:
+Possible outcomes:
 
-### 1. Correction
+| Level | Situation | Response |
+| --- | --- | --- |
+| 1 | Unprofessional but minor | Private written correction, explanation, and expected change |
+| 2 | Repeated or more serious | Formal warning; temporary limits on access or interaction |
+| 3 | Serious or sustained | Temporary suspension from the project and systems |
+| 4 | Harassment, retaliation, or a serious breach | Permanent removal and, where appropriate, referral to authorities |
 
-**Community Impact**: Use of inappropriate language or other behavior deemed
-unprofessional or unwelcome in the community.
+Immediate removal is used where there is a risk to a person, a customer, or the
+project.
 
-**Consequence**: A private, written warning from community leaders, providing
-clarity around the nature of the violation and an explanation of why the
-behavior was inappropriate. A public apology may be requested.
+## 6. Confidentiality and good faith
 
-### 2. Warning
+- Reports are kept confidential to the extent possible.
+- The person reporting must act in good faith; knowingly false reports are a
+  breach of this Code.
+- The person accused is informed of the substance of the allegation and given a
+  chance to respond, unless doing so would create a risk.
 
-**Community Impact**: A violation through a single incident or series of
-actions.
+## 7. Conflicts of interest
 
-**Consequence**: A warning with consequences for continued behavior. No
-interaction with the people involved, including unsolicited interaction with
-those enforcing the Code of Conduct, for a specified period of time. This
-includes avoiding interactions in community spaces as well as external channels
-like social media. Violating these terms may lead to a temporary or permanent
-ban.
+Disclose any personal, financial, or family interest that could affect a project
+decision. Do not review or approve your own change, and do not award a contract to
+yourself or a close associate.
 
-### 3. Temporary Ban
+## 8. Attribution
 
-**Community Impact**: A serious violation of community standards, including
-sustained inappropriate behavior.
-
-**Consequence**: A temporary ban from any sort of interaction or public
-communication with the community for a specified period of time. No public or
-private interaction with the people involved, including unsolicited interaction
-with those enforcing the Code of Conduct, is allowed during this period.
-Violating these terms may lead to a permanent ban.
-
-### 4. Permanent Ban
-
-**Community Impact**: Demonstrating a pattern of violation of community
-standards, including sustained inappropriate behavior, harassment of an
-individual, or aggression toward or disparagement of classes of individuals.
-
-**Consequence**: A permanent ban from any sort of public interaction within the
-community.
-
-## Attribution
-
-This Code of Conduct is adapted from the [Contributor Covenant][homepage],
+This Code is adapted from the [Contributor Covenant](https://www.contributor-covenant.org),
 version 2.1, available at
-[https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1].
+https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.
 
-Community Impact Guidelines were inspired by
-[Mozilla's code of conduct enforcement ladder][Mozilla CoC].
-
-For answers to common questions about this code of conduct, see the FAQ at
-[https://www.contributor-covenant.org/faq][FAQ]. Translations are available at
-[https://www.contributor-covenant.org/translations][translations].
-
-[homepage]: https://www.contributor-covenant.org
-[v2.1]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
-[Mozilla CoC]: https://github.com/mozilla/diversity
-[FAQ]: https://www.contributor-covenant.org/faq
-[translations]: https://www.contributor-covenant.org/translations
+The enforcement ladder is adapted for a small private team. It is not legal
+advice, and it does not replace employment law or a contract.

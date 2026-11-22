@@ -1,29 +1,34 @@
 # Authors and Contributors
 
-## Owner and primary author
+## Owner
 
-- **devennw** — project owner, copyright holder, maintainer.
+- **devennw** — founder, copyright holder, owner of the DUST-OS name, and
+  maintainer.
 
-## Contributors
+The Owner holds the economic copyright in all project code, either as its author
+or through a signed IP assignment.
 
-Contributors are credited here when their contribution is merged into the public
-release, with their consent. Attribution is also preserved in git commit metadata,
-which is the permanent record.
+## Team and contributors
 
-Contributors keep their moral rights (hak moral) under Indonesian copyright law.
-Economic copyright in contributed code is assigned to the Owner by
-[CLA.md](CLA.md).
+Team members and contributors are credited here after their first merged change,
+with their consent, and after their IP assignment is on file.
 
-No contributor is listed until they have accepted the CLA.
+| Name or handle | Role | Areas |
+| --- | --- | --- |
+| _none yet_ | — | — |
+
+Attribution is also preserved permanently in git commit metadata. Moral rights
+(hak moral) remain with each author and are not waived.
 
 ## How to be added
 
-Open a pull request that follows [CONTRIBUTING.md](CONTRIBUTING.md), state
-acceptance of [CLA.md](CLA.md) in the pull request description, and say how you
-want to be credited — a name, a handle, or both. If you prefer not to be listed,
-say so; commit metadata will still record authorship.
+Your IP assignment must be signed and on file before your first change is merged;
+see [LEGAL/IP_ASSIGNMENT.md](LEGAL/IP_ASSIGNMENT.md) and
+[CONTRIBUTING.md](CONTRIBUTING.md), Section 9. Then say how you want to be
+credited — a name, a handle, or both — or ask not to be listed. Commit metadata
+will still record authorship.
 
 ## Third-party code
 
 Third-party components are not authors of this project. They are identified, with
-their licenses, in [NOTICE](NOTICE).
+their licenses and provenance status, in [NOTICE](NOTICE).

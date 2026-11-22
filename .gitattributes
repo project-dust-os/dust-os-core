@@ -29,20 +29,6 @@ CMakeLists.txt text
 NOTICE   text
 LICENSE  text
 
-# ---------------------------------------------------------------------------
-# Paths excluded from `git archive` snapshots.
-#
-# This is a release-export safety net, not a security boundary. The authoritative
-# publication scope is DOCUMENTS/LICENSING.md; the procedure is
-# DOCUMENTS/PUBLISHING.md. Keep this list in sync with the "Not published"
-# section of that policy.
-# ---------------------------------------------------------------------------
-compat/                   export-ignore
-crypto/                   export-ignore
-firmware/                 export-ignore
-test/                     export-ignore
-bin/                      export-ignore
-drivers/vendor/           export-ignore
-
-# DOCUMENTS/ is published by default (ARCHITECTURE.md, LICENSING.md,
-# PUBLISHING.md). Add a line here for any future document that must stay private.
+# The repository is private. There is no public export, so no path is marked
+# export-ignore. Release artifacts are built from a tagged commit and controlled
+# by DOCUMENTS/RELEASE_PROCESS.md; secrets are excluded by .gitignore.

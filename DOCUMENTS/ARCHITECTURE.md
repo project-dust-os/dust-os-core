@@ -7,6 +7,10 @@ recorded here should not be silently contradicted by the code.
 Status: **pre-alpha**. Nothing in this document describes working code unless it
 says so explicitly.
 
+This repository is private and the software is proprietary; see
+[LICENSE](../LICENSE) and [IP_POLICY.md](IP_POLICY.md). Technical decisions D-1 to
+D-7 are recorded here; policy decisions D-8 to D-18 are in IP_POLICY.md.
+
 ---
 
 ## 1. What "hybrid" means in this project
@@ -62,7 +66,7 @@ See [Open decisions](#10-open-decisions), D-1.
 | Component | Location | Responsibility | State |
 | --- | --- | --- | --- |
 | Kernel executive (`ke`) | `kernel/ke/` | Threads, scheduling, locks, timers | Empty |
-| Memory management | `kernel/mm/` | Physical frames, page tables, direct map | Empty; an unrelated draft sits under `boot/bootmgrc/src/mm/` |
+| Memory management | `kernel/mm/` | Physical frames, page tables, direct map | Empty; the boot path must not contain a physical allocator |
 | IPC | `kernel/ipc/` | Shared memory, message channels | Header-level design |
 | Hardware abstraction (`hal`) | `hal/` | CPU, interrupt controller, timers | Empty |
 | Drivers | `drivers/` | Block, input, display | Empty |
@@ -71,8 +75,10 @@ See [Open decisions](#10-open-decisions), D-1.
 | Compatibility | `compat/` | Syscall ABI, POSIX shims | Empty |
 | Graphics | `gui/` | Framebuffer console, compositor | Empty |
 
-The physical memory manager currently lives under the boot manager directory,
-which is temporary; it belongs in the kernel once the boot path is settled.
+The physical memory manager belongs in the kernel, seeded from the memory map
+handed over at boot. A draft under the boot manager was removed: the loader does
+not need a physical allocator, and every line in the loader is a line that must be
+debugged without a debugger.
 
 ## 4. Memory model (intended)
 
@@ -80,8 +86,7 @@ which is temporary; it belongs in the kernel once the boot path is settled.
   the address space; user space occupies the lower half.
 - **Direct map.** All physical memory is mapped at a fixed offset so the kernel
   can reach any frame without changing page tables. The offset comes from the
-  bootloader's HHDM (higher-half direct map) information, not from a hardcoded
-  constant.
+  boot information structure, not from a hardcoded constant.
 - **Physical allocator.** Frame bitmap or free-list, seeded from the bootloader
   memory map, with reserved regions marked for the kernel image, modules,
   framebuffer, and firmware tables.
@@ -152,6 +157,9 @@ Recorded so it is not forgotten. None of these are fixed yet.
 - The boot contract (CPU state, initial stack, boot information layout, memory
   ownership) is not written down, so the kernel-side handoff cannot be implemented
   against it.
+- Eleven UEFI headers under `boot/bootmgrc/` have unresolved provenance. They
+  block commercial distribution until attributed, rewritten, or removed; see
+  [NOTICE](../NOTICE).
 
 **Kernel headers**
 
@@ -181,8 +189,9 @@ Recorded so it is not forgotten. None of these are fixed yet.
 
 **Other**
 
-- `boot/bootmgrc/src/mm/pmm.c` is an unfinished draft: a loop bound is
-  uninitialised and a non-void function has no return path.
+- A physical memory manager draft under `boot/bootmgrc/src/mm/` was removed. The
+  allocator belongs in the kernel; the boot path only reports the firmware memory
+  map.
 - Many files are zero bytes, including `kernel/ke/*`, `kernel/ipc/util.h`,
   `boot/bootmgrc/src/drivers/*`, and several linker scripts and assembly files.
 - Source files still carry Windows line endings in places; `.gitattributes`
@@ -192,35 +201,35 @@ Recorded so it is not forgotten. None of these are fixed yet.
 ## 10. Open decisions
 
 Each decision should be recorded here with a date and a one-paragraph rationale
-when it is made.
+when it is made. Status follows the legend in [README.md](README.md): Decided,
+Provisional, Pending, or Blocked.
 
-**D-1. Boot contract.** Define the handoff contract between the boot application
-and the kernel: entry state, boot information layout, and memory ownership.
-Recommendation: publish it as a versioned header shared by both sides, and treat
-any change to it as a breaking change.
+**D-1. Boot contract.** *Pending.* Define the handoff contract between the boot
+application and the kernel: entry state, boot information layout, and memory
+ownership. Recommendation: define it as a versioned header shared by both sides,
+and treat any change to it as a breaking change.
 
-**D-2. Target architecture.** x86-64 only, or x86-64 plus AArch64. Only x86-64 is
-testable today. Recommendation: x86-64 only; delete `aarch64` placeholders.
+**D-2. Target architecture.** *Decided.* x86-64 only. Only x86-64 is testable
+today; `aarch64` placeholders are not part of the build.
 
-**D-3. Kernel naming.** `ke/` follows Windows NT terminology while `inode`,
+**D-3. Kernel naming.** *Pending.* `ke/` follows Windows NT terminology while `inode`,
 `vfs`, and `shm` follow Unix terminology. Pick one vocabulary for the executive
 layer and keep it consistent.
 
-**D-4. Error convention.** Negative error codes returned from functions, or a
+**D-4. Error convention.** *Pending.* Negative error codes returned from functions, or a
 thread-local `errno`. Mixing both produces APIs where callers cannot tell which
 convention applies. Recommendation: negative return values in kernel space,
 `errno` translation only at the syscall boundary.
 
-**D-5. ID width.** Choose one signed type for all IPC identifiers and use it
+**D-5. ID width.** *Pending.* Choose one signed type for all IPC identifiers and use it
 everywhere, so that a single negative sentinel can mean failure.
 
-**D-6. Filesystem order.** Confirm the `wfs` → read-only NTFS → F2FS order in
+**D-6. Filesystem order.** *Pending.* Confirm the `wfs` → read-only NTFS → F2FS order in
 Section 7, or drop targets that will not be reached.
 
-**D-7. Repository layout.** The working tree is root-level (`kernel/`, `boot/`,
-`hal/`, `DOCUMENTS/`), while the git index still records an earlier `sys/` layout.
-Finish the move in one commit that contains nothing else, then treat the layout as
-settled.
+**D-7. Repository layout.** *Decided.* The layout is root-level (`kernel/`,
+`boot/`, `hal/`, `DOCUMENTS/`, `LEGAL/`). The earlier `sys/` layout is no longer
+tracked. Further moves happen in one commit that contains nothing else.
 
 ## 11. References
 
